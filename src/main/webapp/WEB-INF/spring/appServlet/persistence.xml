@@ -21,9 +21,9 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="org.postgresql.Driver" />
-		<beans:property name="url" value="jdbc:postgresql://56a22f5f7628e1548c0000ee@app2016-app2016mask.rhcloud.com:5432/app2016" />			
-		<beans:property name="username" value="adminibsvn3z" />
-		<beans:property name="password" value="4r9XGUAvebQg" />
+		<beans:property name="url" value="jdbc:postgresql://jfcihdmafhougz:e2siiZalKrVuwUTDdAq-BrzWb7@ec2-54-225-199-245.compute-1.amazonaws.com:5432/dfh8ev2d8eargd" />			
+		<beans:property name="username" value="jfcihdmafhougz" />
+		<beans:property name="password" value="e2siiZalKrVuwUTDdAq-BrzWb7" />
 	</beans:bean>
 
 	<!-- Hibernate 4 SessionFactory Bean definition -->
