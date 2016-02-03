@@ -159,24 +159,6 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>libs-release</name>
-      <url>http://tssblrvm005:8082/artifactory/libs-release</url>
-    </repository>
-    <repository>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>snapshots</id>
-      <name>libs-snapshot</name>
-      <url>http://tssblrvm005:8082/artifactory/libs-snapshot</url>
-    </repository>
-  </repositories>
   <pluginRepositories>
     <pluginRepository>
       <snapshots>
