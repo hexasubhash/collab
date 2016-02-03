@@ -159,24 +159,6 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
-  <pluginRepositories>
-    <pluginRepository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>plugins-release</name>
-      <url>http://tssblrvm005:8082/artifactory/plugins-release</url>
-    </pluginRepository>
-    <pluginRepository>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>snapshots</id>
-      <name>plugins-snapshot</name>
-      <url>http://tssblrvm005:8082/artifactory/plugins-snapshot</url>
-    </pluginRepository>
-  </pluginRepositories>
   <build>
     <sourceDirectory>C:\Users\Subhash.Kurni\cnworkspace\collab\src\main\java</sourceDirectory>
     <scriptSourceDirectory>C:\Users\Subhash.Kurni\cnworkspace\collab\src\main\scripts</scriptSourceDirectory>
