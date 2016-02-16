@@ -1,6 +1,7 @@
-	package com.collab.collabapi.controllers;
+package com.collab.collabapi.controllers;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.collab.collabapi.model.UserProfile;
 import com.collab.collabapi.ro.UserProfileRO;
 import com.collab.collabapi.service.UserProfileService;
+import com.collab.collabapi.service.impl.CollabUserSession;
 
 //http://websystique.com/springmvc/spring-mvc-4-restful-web-services-crud-example-resttemplate/
 //http://stackoverflow.com/questions/26549379/when-use-responseentityt-and-restcontroller-for-spring-restful-applications
 @RestController
 public class UserProfileController {
+	
 	@Autowired
 	private UserProfileService userProfileService;
+	
+	@Autowired
+	private CollabUserSession collabUserSession;  
 
 	// For add and update person both
 	@RequestMapping(value = "/userprofile/register", method = RequestMethod.POST)
@@ -39,11 +45,13 @@ public class UserProfileController {
 	}
 
 	@RequestMapping(value = "/userprofile/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<UserProfileRO> authUser(@ModelAttribute UserProfileRO userProfileRO) {
+	public ResponseEntity<UserProfileRO> authUser(@ModelAttribute UserProfileRO userProfileRO,HttpSession session) {
 
 		UserProfile userProfile = this.userProfileService.getUserProfileByCellNo(userProfileRO.getPhoneNo());
+		
 		if (userProfile != null) {
 			BeanUtils.copyProperties(userProfile, userProfileRO);
+			collabUserSession.setUserSession(userProfile, session);			
 			return new ResponseEntity<UserProfileRO>(userProfileRO, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<UserProfileRO>(HttpStatus.UNAUTHORIZED);

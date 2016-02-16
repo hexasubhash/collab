@@ -2,6 +2,7 @@ package com.collab.collabapi.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import com.collab.collabapi.dao.PersonDAO;
 import com.collab.collabapi.dao.UserProfileDAO;
 import com.collab.collabapi.model.Person;
 import com.collab.collabapi.model.UserProfile;
+import com.collab.collabapi.ro.CitiesRO;
 import com.collab.collabapi.service.UserProfileService;
 
 @Service
@@ -53,6 +55,12 @@ public class UserProfileServiceImpl implements UserProfileService {
 	@Transactional
 	public UserProfile getUserProfileByCellNo(String cellNo) {
 		return this.userProfileDAO.getUserProfileByCellNo(cellNo);
-	}	
+	}
+	
+	@Override
+	@Transactional
+	public List<CitiesRO> fetchCities(){
+		return this.userProfileDAO.fetchCity();
+	}
 	
 }

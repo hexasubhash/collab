@@ -20,10 +20,10 @@
 	
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<beans:property name="driverClassName" value="org.postgresql.Driver" />
-		<beans:property name="url" value="jdbc:postgresql://jfcihdmafhougz:e2siiZalKrVuwUTDdAq-BrzWb7@ec2-54-225-199-245.compute-1.amazonaws.com:5432/dfh8ev2d8eargd" />			
-		<beans:property name="username" value="jfcihdmafhougz" />
-		<beans:property name="password" value="e2siiZalKrVuwUTDdAq-BrzWb7" />
+	<beans:property name="driverClassName" value="org.postgresql.Driver" />
+		<beans:property name="url" value="jdbc:postgresql://localhost:5432/collabcore" />			
+		<beans:property name="username" value="postgres" />
+		<beans:property name="password" value="Subhash@123" />
 	</beans:bean>
 
 	<!-- Hibernate 4 SessionFactory Bean definition -->
@@ -35,12 +35,12 @@
 				<beans:value>com.collab.collabapi.model.Person</beans:value>
 				<beans:value>com.collab.collabapi.model.UserProfile</beans:value>
 				<beans:value>com.collab.collabapi.model.Instituition</beans:value>
+				<beans:value>com.collab.collabapi.model.City</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
 			<beans:props>
-				<beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect
-				</beans:prop>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</beans:prop>
 				<beans:prop key="hibernate.show_sql">true</beans:prop>
 				<beans:prop key="hibernate.hbm2ddl.auto">create</beans:prop>
 			</beans:props>

@@ -2,7 +2,9 @@ package com.collab.collabapi.dao;
 
 import java.util.List;
 
+import com.collab.collabapi.model.City;
 import com.collab.collabapi.model.UserProfile;
+import com.collab.collabapi.ro.CitiesRO;
 
 public interface UserProfileDAO {
 
@@ -17,4 +19,6 @@ public interface UserProfileDAO {
 	public void removeUserProfile(int id);
 	
 	public UserProfile getUserProfileByCellNo(String cellNo);
+	
+	public List<CitiesRO> fetchCity();
 }

@@ -3,6 +3,7 @@ package com.collab.collabapi.service;
 import java.util.List;
 
 import com.collab.collabapi.model.UserProfile;
+import com.collab.collabapi.ro.CitiesRO;
 
 public interface UserProfileService {
 
@@ -12,5 +13,6 @@ public interface UserProfileService {
 	public UserProfile getUserProfileById(int id);
 	public UserProfile getUserProfileByCellNo(String cellNo);
 	public void removeUserProfile(int id);
+	public List<CitiesRO> fetchCities();
 	
 }

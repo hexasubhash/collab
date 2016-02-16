@@ -20,10 +20,10 @@
 	
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<beans:property name="driverClassName" value="org.postgresql.Driver" />
-		<beans:property name="url" value="jdbc:postgresql://56a22f5f7628e1548c0000ee@app2016-app2016mask.rhcloud.com:5432/app2016" />			
-		<beans:property name="username" value="adminibsvn3z" />
-		<beans:property name="password" value="4r9XGUAvebQg" />
+	<beans:property name="driverClassName" value="org.postgresql.Driver" />
+		<beans:property name="url" value="jdbc:postgresql://localhost:5432/collabcore" />			
+		<beans:property name="username" value="postgres" />
+		<beans:property name="password" value="Subhash@123" />
 	</beans:bean>
 
 	<!-- Hibernate 4 SessionFactory Bean definition -->
@@ -35,6 +35,7 @@
 				<beans:value>com.collab.collabapi.model.Person</beans:value>
 				<beans:value>com.collab.collabapi.model.UserProfile</beans:value>
 				<beans:value>com.collab.collabapi.model.Instituition</beans:value>
+				<beans:value>com.collab.collabapi.model.City</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">

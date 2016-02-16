@@ -1,5 +1,6 @@
 package com.collab.collabapi.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,11 +8,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.collab.collabapi.dao.UserProfileDAO;
+import com.collab.collabapi.model.City;
 import com.collab.collabapi.model.UserProfile;
+import com.collab.collabapi.ro.CitiesRO;
 
 @Repository
 public class UserProfileDAOImpl implements UserProfileDAO {
@@ -73,6 +77,18 @@ public class UserProfileDAOImpl implements UserProfileDAO {
 		Object queryResult = query.uniqueResult();
 		UserProfile userProfile = (UserProfile) queryResult;
 		return userProfile;
+	}
+
+	public List<CitiesRO> fetchCity() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<City> cityList = session.createQuery("from City").list();
+		List<CitiesRO> listCityRo = new ArrayList<CitiesRO>();
+		for (City city : cityList) {
+			CitiesRO citiesRO = new CitiesRO();
+			BeanUtils.copyProperties(city, citiesRO);
+			listCityRo.add(citiesRO);
+		}
+		return listCityRo;
 	}
 
 }
